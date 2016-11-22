@@ -12,14 +12,14 @@ LDFLAGS  = -L$(OBS_LIB)
 LDLIBS_LIB   = -lobs -lrt
 LDLIBS_RENDERER   = $(shell pkg-config --libs Qt5WebKitWidgets) -lrt
 
-LIB = build/qtwebkit-browser-2.so
+LIB = build/qtwebkit-browser-{{ instance }}.so
 LIB_OBJ = build/qtwebkit-main.o build/qtwebkit-source.o build/qtwebkit-manager.o
 
 RENDERER = build/renderer
 RENDERER_SRC = src/qtwebkit-renderer.cpp
 RENDERER_OBJ = build/qtwebkit-renderer.o
 
-PLUGIN_BUILD_DIR = build/qtwebkit-browser-2
+PLUGIN_BUILD_DIR = build/qtwebkit-browser-{{ instance }}
 PLUGIN_INSTALL_DIR = ~/.config/obs-studio/plugins
 ifdef OBS_PLUGIN_INSTALL_OLD
 PLUGIN_INSTALL_DIR = ~/.obs-studio/plugins

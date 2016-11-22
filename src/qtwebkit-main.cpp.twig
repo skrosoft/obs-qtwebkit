@@ -22,11 +22,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "qtwebkit-source.hpp"
 
 OBS_DECLARE_MODULE()
-OBS_MODULE_USE_DEFAULT_LOCALE("qtwebkit-source-2", "en-US")
+OBS_MODULE_USE_DEFAULT_LOCALE("qtwebkit-source-{{ instance }}", "en-US")
 
 static const char *qtwebkit_get_name(void*)
 {
-	return obs_module_text("QtWebKitBrowser2");
+	return obs_module_text("QtWebKitBrowser{{ instance }}");
 }
 
 static void reload_hotkey_pressed(void *data, obs_hotkey_id id, obs_hotkey_t *key, bool pressed)
@@ -146,7 +146,7 @@ static uint32_t qtwebkit_get_height(void *data)
 bool obs_module_load(void)
 {
 	struct obs_source_info info = {};
-	info.id             = "qtwebkit-source-2";
+	info.id             = "qtwebkit-source-{{ instance }}";
 	info.type           = OBS_SOURCE_TYPE_INPUT;
 	info.output_flags   = OBS_SOURCE_VIDEO;
 
