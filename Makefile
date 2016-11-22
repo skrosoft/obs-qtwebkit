@@ -12,7 +12,7 @@ LDFLAGS  = -L$(OBS_LIB)
 LDLIBS_LIB   = -lobs -lrt
 LDLIBS_RENDERER   = $(shell pkg-config --libs Qt5WebKitWidgets) -lrt
 
-LIB = build/qtwebkit-browser.so
+LIB = build/qtwebkit-browser-2.so
 LIB_OBJ = build/qtwebkit-main.o build/qtwebkit-source.o build/qtwebkit-manager.o
 
 RENDERER = build/renderer
