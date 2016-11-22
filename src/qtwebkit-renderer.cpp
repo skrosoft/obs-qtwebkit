@@ -107,17 +107,19 @@ int main(int argc, char *argv[])
 	QApplication app(argc, argv);
 	QWebPage page;
 
-	QPalette palette = page.palette();
+	QWebPage newPage = page->createWindow();
+
+	QPalette palette = newPage.palette();
 	palette.setBrush(QPalette::Base, Qt::transparent);
-	page.setPalette(palette);
-	page.settings()->setUserStyleSheetUrl(QUrl::fromUserInput(argv[6]));
-	page.settings()->setObjectCacheCapacities(0, 0, 0);
+	newPage.setPalette(palette);
+	newPage.settings()->setUserStyleSheetUrl(QUrl::fromUserInput(argv[6]));
+	newPage.settings()->setObjectCacheCapacities(0, 0, 0);
 
 	const QUrl url = QUrl::fromUserInput(argv[1]);
-	page.setViewportSize(QSize(width, height));
-	page.mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
-	page.mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
-	page.mainFrame()->setUrl(url);
+	newPage.setViewportSize(QSize(width, height));
+	newPage.mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
+	newPage.mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
+	newPage.mainFrame()->setUrl(url);
 
 	pthread_mutex_lock(&data->mutex);
 	QImage image(&data->data, width, height, QImage::Format_RGBA8888);
@@ -134,13 +136,13 @@ int main(int argc, char *argv[])
 
 		pthread_mutex_lock(&data->mutex);
 		image.fill(0);
-		page.mainFrame()->render(&painter, QWebFrame::ContentsLayer);
+		newPage.mainFrame()->render(&painter, QWebFrame::ContentsLayer);
 		pthread_mutex_unlock(&data->mutex);
 
 		// reload file if changed
 		if (refresh) {
 			refresh = 0;
-			// page.mainFrame()->setUrl(url);
+			newPage.mainFrame()->setUrl(url);
 		}
 
 		usleep(1000000 / fps);
