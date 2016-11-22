@@ -105,7 +105,9 @@ int main(int argc, char *argv[])
 	int fps = atoi(argv[4]);
 	char *suffix = argv[5];
 	char *str_url = argv[1];
-	init_shared_data(atoi(argv[2]), atoi(argv[3]), md5(strcat(suffix, str_url)).c_str() );
+    std::string mymd5 = md5(strcat(suffix, str_url));
+	const char * mymd5c = mymd5.c_str();
+	init_shared_data(atoi(argv[2]), atoi(argv[3]), mymd5c );
 
 	QApplication app(argc, argv);
 	QWebPage page;
