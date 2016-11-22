@@ -140,7 +140,7 @@ int main(int argc, char *argv[])
 		// reload file if changed
 		if (refresh) {
 			refresh = 0;
-			page.mainFrame()->setUrl(url);
+			//page.mainFrame()->setUrl(url);
 		}
 
 		usleep(1000000 / fps);
