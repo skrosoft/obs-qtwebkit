@@ -19,7 +19,7 @@ RENDERER = build/renderer
 RENDERER_SRC = src/qtwebkit-renderer.cpp
 RENDERER_OBJ = build/qtwebkit-renderer.o
 
-PLUGIN_BUILD_DIR = build/qtwebkit-browser
+PLUGIN_BUILD_DIR = build/qtwebkit-browser-2
 PLUGIN_INSTALL_DIR = ~/.config/obs-studio/plugins
 ifdef OBS_PLUGIN_INSTALL_OLD
 PLUGIN_INSTALL_DIR = ~/.obs-studio/plugins

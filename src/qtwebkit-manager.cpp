@@ -25,7 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "qtwebkit-manager.hpp"
 
-#define blog(level, msg, ...) blog(level, "qtwebkit-source: " msg, ##__VA_ARGS__)
+#define blog(level, msg, ...) blog(level, "qtwebkit-source-2: " msg, ##__VA_ARGS__)
 
 #define SHM_NAME "/obsqtwebkit"
 
