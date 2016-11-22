@@ -28,8 +28,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QWebFrame>
 #include <QPainter>
 
-#include "md5.hpp"
-
 #define SHM_NAME "/obsqtwebkit"
 
 struct shared_data {
@@ -104,14 +102,7 @@ int main(int argc, char *argv[])
 	int height = atoi(argv[3]);
 	int fps = atoi(argv[4]);
 	char *suffix = argv[5];
-	char *str_url = argv[1];
-
-	std::string mymd5 = md5(strcat(suffix, str_url));
-    char * writable = new char[mymd5.size() + 1];
-    std::copy(mymd5.begin(), mymd5.end(), writable);
-    writable[mymd5.size()] = '\0';
-
-	init_shared_data(atoi(argv[2]), atoi(argv[3]), writable );
+	init_shared_data(atoi(argv[2]), atoi(argv[3]), suffix);
 
 	QApplication app(argc, argv);
 	QWebPage page;
