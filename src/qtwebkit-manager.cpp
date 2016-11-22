@@ -56,7 +56,7 @@ QtWebkitManager::QtWebkitManager(char *url, uint32_t width, uint32_t height, uin
 	}
 
 	pthread_mutexattr_init(&attrmutex);
-	pthread_mutexattr_setpshared(&attrmutex, PTHREAD_PROCESS_SHARED);
+	pthread_mutexattr_setpshared(&attrmutex, PTHREAD_PROCESS_PRIVATE);
 	pthread_mutex_init(&data->mutex, &attrmutex);
 
 	SpawnRenderer(url, css);
