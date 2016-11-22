@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <sys/prctl.h>
 #include <fcntl.h>
 #include <pthread.h>
+#include <md5.h>
 
 #include <QApplication>
 #include <QWebPage>
@@ -102,7 +103,8 @@ int main(int argc, char *argv[])
 	int height = atoi(argv[3]);
 	int fps = atoi(argv[4]);
 	char *suffix = argv[5];
-	init_shared_data(atoi(argv[2]), atoi(argv[3]), suffix);
+	char *str_url = argv[1];
+	init_shared_data(atoi(argv[2]), atoi(argv[3]), strcat(suffix, str_url));
 
 	QApplication app(argc, argv);
 	QWebPage page;
@@ -140,7 +142,7 @@ int main(int argc, char *argv[])
 		// reload file if changed
 		if (refresh) {
 			refresh = 0;
-			//page.mainFrame()->setUrl(url);
+			page.mainFrame()->setUrl(url);
 		}
 
 		usleep(1000000 / fps);
