@@ -22,7 +22,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <sys/prctl.h>
 #include <fcntl.h>
 #include <pthread.h>
-#include <md5.h>
 
 #include <QApplication>
 #include <QWebPage>
