@@ -107,7 +107,7 @@ int main(int argc, char *argv[])
 	QApplication app(argc, argv);
 	QWebPage page;
 
-	QWebPage newPage = page.createWindow();
+	QWebPage newPage = page.createWindow(QWebPage::WebBrowserWindow);
 
 	QPalette palette = newPage.palette();
 	palette.setBrush(QPalette::Base, Qt::transparent);
