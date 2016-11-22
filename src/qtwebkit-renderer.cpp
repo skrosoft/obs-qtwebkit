@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
 	int height = atoi(argv[3]);
 	int fps = atoi(argv[4]);
 	char *suffix = argv[5];
-	//init_shared_data(atoi(argv[2]), atoi(argv[3]), suffix);
+	init_shared_data(atoi(argv[2]), atoi(argv[3]), suffix);
 
 	QApplication app(argc, argv);
 	QWebPage page;
@@ -140,7 +140,7 @@ int main(int argc, char *argv[])
 		// reload file if changed
 		if (refresh) {
 			refresh = 0;
-			page.mainFrame()->setUrl(url);
+			//page.mainFrame()->setUrl(url);
 		}
 
 		usleep(1000000 / fps);
@@ -150,7 +150,7 @@ int main(int argc, char *argv[])
 		uninit_inotify();
 	}
 
-	//uninit_shared_data(atoi(argv[2]), atoi(argv[3]));
+	uninit_shared_data(atoi(argv[2]), atoi(argv[3]));
 
 	return 0;
 }
