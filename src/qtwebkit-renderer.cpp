@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
     std::copy(mymd5.begin(), mymd5.end(), writable);
     writable[mymd5.size()] = '\0';
 
-	init_shared_data(atoi(argv[2]), atoi(argv[3]), mymd5 );
+	init_shared_data(atoi(argv[2]), atoi(argv[3]), writable );
 
 	QApplication app(argc, argv);
 	QWebPage page;
