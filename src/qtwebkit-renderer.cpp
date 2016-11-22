@@ -28,7 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QWebFrame>
 #include <QPainter>
 
-#include "md5.hpp"
+#include "md5.h"
 
 #define SHM_NAME "/obsqtwebkit"
 
