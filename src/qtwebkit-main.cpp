@@ -22,11 +22,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "qtwebkit-source.hpp"
 
 OBS_DECLARE_MODULE()
-OBS_MODULE_USE_DEFAULT_LOCALE("qtwebkit-source", "en-US")
+OBS_MODULE_USE_DEFAULT_LOCALE("qtwebkit-source-2", "en-US")
 
 static const char *qtwebkit_get_name(void*)
 {
-	return obs_module_text("QtWebKitBrowser 2");
+	return obs_module_text("QtWebKitBrowser2");
 }
 
 static void reload_hotkey_pressed(void *data, obs_hotkey_id id, obs_hotkey_t *key, bool pressed)

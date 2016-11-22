@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define blog(level, msg, ...) blog(level, "qtwebkit-source-2: " msg, ##__VA_ARGS__)
 
-#define SHM_NAME "/obsqtwebkit"
+#define SHM_NAME "/obsqtwebkit2"
 
 QtWebkitManager::QtWebkitManager(char *url, uint32_t width, uint32_t height, uint32_t fps, char *css):
 	width(width), height(height), fps(fps)

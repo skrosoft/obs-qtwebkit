@@ -28,7 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QWebFrame>
 #include <QPainter>
 
-#define SHM_NAME "/obsqtwebkit"
+#define SHM_NAME "/obsqtwebkit2"
 
 struct shared_data {
 	pthread_mutex_t mutex;
